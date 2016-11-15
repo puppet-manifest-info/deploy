@@ -1,2 +1,2 @@
 # deploy
-module integrate with gerrit
+module integrate with gerrit code review
