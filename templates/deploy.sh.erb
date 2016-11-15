@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo jenkins | sudo -S kill -9 `pgrep node`
+
+cd /var/lib/jenkins/app && ls -lart && rm -rf recption_app_web_admin-0.0.0.tgz package npm-debug.log
+
+ls -lart
+
+wget http://labs.infostretch.com/nexus/repository/npm-internal/recption_app_web_admin/-/recption_app_web_admin-0.0.0.tgz
+
+ls -lart
+
+tar -zxvf recption_app_web_admin-0.0.0.tgz
+
+cd /var/lib/jenkins/app/package/ && ls -lart
+
+npm install && sleep 1m
+
+nohup npm start &
+
+ls -lart && echo "***** Deployed App successfully *****"
